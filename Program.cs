@@ -18,7 +18,8 @@ namespace github
                     matrica[i, j] = 0;
                 }
             }
-            matrica[0, 0] = 9;
+            //matrica[0, 0] = 9;
+            matrica[7, 6] = 9;
             //pecatenje(matrica);
             for (int i = 0; i < 8; i++)
             {
@@ -27,28 +28,66 @@ namespace github
                 {
                     if (matrica[i,j]==9)
                     {
-                        matrica[i, 0]++;
-                        matrica[i, 1]++;
-                        matrica[i, 2]++;
-                        matrica[i, 3]++;
-                        matrica[i, 4]++;
-                        matrica[i, 5]++;
-                        matrica[i, 6]++;
-                        matrica[i, 7]++;
-
-                        matrica[0, j]++;
-                        matrica[1, j]++;
-                        matrica[2, j]++;
-                        matrica[3, j]++;
-                        matrica[4, j]++;
-                        matrica[5, j]++;
-                        matrica[6, j]++;
-                        matrica[7, j]++;
-                        matrica[i, j]--;
-                        matrica[i, j]--;
-
-
-
+                        //row
+                        for (int a = 0; a < 8; a++)
+                        {
+                            matrica[i, a]++;
+                        }
+                        //column
+                        for (int b = 0; b < 8; b++)
+                        {
+                            matrica[b, j]++;
+                        }
+                        // + +
+                        for (int k = i, l=j; k < 8 && l<8; k++, l++)
+                        {
+                            if (k<8 && l<8)
+                            {
+                                matrica[k, l]++;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        // + -
+                        for (int k = i, l = j; k < 8 && l >= 0; k++, l--)
+                        {
+                            if (k < 8 && l >= 0)
+                            {
+                                matrica[k, l]++;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        // - -
+                        for (int k = i, l = j; k >= 0 && l >= 0; k--, l--)
+                        {
+                            if (k >= 0 && l >= 0)
+                            {
+                                matrica[k, l]++;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        // - +
+                        for (int k = i, l = j; k >= 0 && l < 8; k--, l++)
+                        {
+                            if (k >= 0 && l < 8)
+                            {
+                                matrica[k, l]++;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        // normaliziranje
+                        matrica[i, j] = matrica[i, j] - 6;
                     }
                 }
             }
