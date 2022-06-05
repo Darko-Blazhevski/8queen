@@ -7,12 +7,9 @@ namespace github
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("abu graib");
-
-            //add
+    
             int[,] matrica = new int[8, 8];
-            int[,] prazna = new int[8, 8];
-            //polnenje so 0
+
             void polnenje(int[,] matrica) {
                 for (int i = 0; i < 8; i++)
                 {
@@ -23,16 +20,11 @@ namespace github
                 }
 
             }
+            
             polnenje(matrica);
-            polnenje(prazna);
-            //pecatenje(matrica);
-            //matrica[0, 0] = 9;
-            //matrica[7, 6] = 9;
-            //matrica[4, 4] = 9;
-            //attack(matrica);
-            //pecatenje(matrica);
-            int z = 0, x = 0;
-            //queen attack
+           
+            int z = 0, x = 0,brojac = 1;
+
             void attack(int[,] matrica) {
                 for (int i = 0; i < 8; i++)
                 {
@@ -106,47 +98,7 @@ namespace github
                 }
             }
 
-            //8 queen shuffle
-            void OneQueenShuffle(int[,] matrica)
-            {
-                for (; ; )
-                {
-                    polnenje(matrica);
-
-                    if (z <= 7 && x < 7)
-                    {
-                        matrica[z, x] = 9;
-                        attack(matrica);
-                        pecatenje(matrica);
-                        Console.WriteLine("\n\n");
-                        x++;
-                    }
-                    else if (z <= 7 && x == 7)
-                    {
-                        matrica[z, x] = 9;
-                        attack(matrica);
-                        pecatenje(matrica);
-                        Console.WriteLine("\n\n");
-                        z++;
-                        x = 0;
-                    }
-                    else if (z == 7 && x == 7)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        break;
-                    }
-
-                }
-
-            }
-            int brojac = 1;
-            //QueenShuffle(matrica);
-            //int z1 = 0, x1 = 0, z2 = 0, x2 = 0, z3 = 0, x3 = 0;
-            
-                for (int i0 = 0; i0 <= 7; i0++)
+            for (int i0 = 0; i0 <= 7; i0++)
                 {
                     for (int i1 = 0; i1 <= 7; i1++)
                     {
@@ -190,10 +142,7 @@ namespace github
                     }
                 }
             
-
-
             Console.WriteLine("KRAJ!!");
-            //pecatenje(matrica);
         }
         
         static void pecatenje(int[,] matrica)
